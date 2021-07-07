@@ -1,0 +1,67 @@
+---
+# ANSIBLE_CONFIG=/root/perccli/cli/Linux/ansible.cfg ansible-playbook -i hosts -v main.yml
+- name: dg lv   
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create a directory if it does not exist
+      file:
+        path: /opt/MegaRAID/perccli/
+        state: directory
+        mode: '0755'      
+
+    - copy:
+        src: "{{ item }}"
+        dest: "/opt/MegaRAID/perccli/{{ item }}"
+        owner: root
+        group: root
+        mode: '0777'
+      with_items:
+              # - /opt/MegaRAID/perccli/
+        - perccli  
+
+          #  - shell: "/opt/MegaRAID/perccli/perccli /c0/d0 show all"
+          #    # todo: register and parse
+          #    register: diskgroup0
+          #  - debug: var=diskgroup0.stdout_lines  
+          #  - shell: "/opt/MegaRAID/perccli/perccli /c0/d1 show all"
+          #    register: diskgroup1
+          #  - debug: var=diskgroup1.stdout_lines  
+          #  - shell: "/opt/MegaRAID/perccli/perccli /c0/d2 show all"
+          #    register: diskgroup2
+          #  - debug: var=diskgroup2.stdout_lines  
+    - shell: "/opt/MegaRAID/perccli/perccli /c0/dall show all"
+      # todo: register and parse
+      register: diskgroupall
+    - debug: var=diskgroupall.stdout_lines  
+      # /perccli /c0 show jbod
+      #
+      #
+      # /opt/MegaRAID/perccli/perccli /c0/dall show all
+      # /opt/MegaRAID/perccli/perccli /c0/d1 show all
+      # /opt/MegaRAID/perccli/perccli /c0/d0 show all
+      # /opt/MegaRAID/perccli/perccli /c0/d2 show all
+      # /opt/MegaRAID/perccli/perccli /c0/ show all
+      # /opt/MegaRAID/perccli/perccli /c0/d0 show all
+      # /opt/MegaRAID/perccli/perccli /c0/d1 show all
+      # /opt/MegaRAID/perccli/perccli /c0/dall show all
+      # /opt/MegaRAID/perccli/perccli /c1/dall show all
+      # /opt/MegaRAID/perccli/perccli /c0/dall show all
+      # /opt/MegaRAID/perccli/perccli /c0/fall show
+      # /opt/MegaRAID/perccli/perccli /c0/vall show
+      # /opt/MegaRAID/perccli/perccli /c0/eall/sall show
+      # /opt/MegaRAID/perccli/perccli /c0/e32/s12 show
+      # /opt/MegaRAID/perccli/perccli /c0/e32/s12 set jbod
+      # /opt/MegaRAID/perccli/perccli /c0/fall show
+      # /opt/MegaRAID/perccli/perccli /c0/fall show all
+      # /opt/MegaRAID/perccli/perccli /c0/fall show
+      # /opt/MegaRAID/perccli/perccli /c0/f0 show
+      # /opt/MegaRAID/perccli/perccli /c0/f1 show
+      # /opt/MegaRAID/perccli/perccli /c0/f2 show
+      # /opt/MegaRAID/perccli/perccli /c0/f0 show
+      # /opt/MegaRAID/perccli/perccli /c0/fall show
+      # 1/opt/MegaRAID/perccli/perccli /c0/fall del
+      # df -h
+      # free -m
+      # 1/opt/MegaRAID/perccli/perccli /c0 add vd type=raid0 drives=32:12
+
