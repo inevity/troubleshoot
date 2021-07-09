@@ -1,0 +1,12 @@
+[all:vars]
+
+dell_dsu_repo_install=True
+#proxy_env:
+#  ftp_proxy: "{{proxy_server_address}}"
+#  http_proxy: "{{proxy_server_address}}"
+#  https_proxy: "{{proxy_server_address}}"
+#proxy_server_address="http://192.168.1.185:8080"
+proxy_server_address="socks5://192.168.1.185:1088"
+[servers]
+172.16.10.64
+# impi 172.16.1.112

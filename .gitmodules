@@ -1,3 +1,6 @@
 [submodule "badfish"]
 	path = badfish
 	url = https://github.com/redhat-performance/badfish.git
+[submodule "roles/ansible-role-dell-firmware-upgrade"]
+	path = roles/ansible-role-dell-firmware-upgrade
+	url = https://github.com/CSCfi/ansible-role-dell-firmware-upgrade.git

@@ -1,0 +1,46 @@
+
+all:
+  hosts:
+    #ipmi112:
+    #  ansible_host: 172.16.10.64
+    ipmi111:
+      ansible_host: 172.16.10.18
+    # now for ipfs ubunt 21.04, later need to install centos 7.9
+    #ipmi110:
+    #  ansible_host: 172.16.200.11
+    # pve 
+    # ipmi109:
+    #   ansible_host: 172.18.10.106
+  vars:
+    dell_dsu_repo_install: True
+    proxy_server_address: "socks5://192.168.1.185:1088"
+   #proxy_env:
+   #  ftp_proxy: "{{proxy_server_address}}"
+   #  http_proxy: "{{proxy_server_address}}"
+   #  https_proxy: "{{proxy_server_address}}"
+
+  children:
+          #  webservers:
+          #    hosts:
+          #      foo.example.com:
+          #      bar.example.com:
+          #  dbservers:
+          #    hosts:
+          #      one.example.com:
+          #      two.example.com:
+          #      three.example.com:
+
+
+          #
+          #[all:vars]
+          #
+          #dell_dsu_repo_install=True
+          ##proxy_env:
+          ##  ftp_proxy: "{{proxy_server_address}}"
+          ##  http_proxy: "{{proxy_server_address}}"
+          ##  https_proxy: "{{proxy_server_address}}"
+          ##proxy_server_address="http://192.168.1.185:8080"
+          #proxy_server_address="socks5://192.168.1.185:1088"
+          #[servers]
+          #172.16.10.64
+          ## impi 172.16.1.112

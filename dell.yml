@@ -1,0 +1,36 @@
+---
+#   1  cat /etc/centos-release
+#    2  ip adr
+#    3  ip addr
+#    4  ethtool em1
+#    5  ethtool em2
+#    6  ethtool em3
+#    7  ethtool em4
+#    8  ip addr
+#    9  ethtool p2p1
+#   10  ethtool p2p2
+#   11  vi /etc/sysconfig/network-scripts/ifcfg-em1
+#   12  ifup em1
+#   13  ip addr
+#   14  ipadr
+#   15  ip addr
+#   16  reboot
+#   17  ip addr
+#   18  ethtool em1
+#   19  ethtool em2
+#   20  ethtool em3
+#   21  reboot
+#   22  yum search ipmitool
+#   23  yum install -y ipmitool
+#   24  ipmi user list
+#   25  ipmitool user list
+#   26  ipmitool user list 1
+#   27  ipmitool user set password 2 root
+#
+- name: dg lv   
+  hosts: all
+  # become: yes
+  #tasks:
+# - hosts: servers
+  roles:
+     - { role: ansible-role-dell-firmware-upgrade }
