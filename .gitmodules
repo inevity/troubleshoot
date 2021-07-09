@@ -1,0 +1,3 @@
+[submodule "badfish"]
+	path = badfish
+	url = https://github.com/redhat-performance/badfish.git
